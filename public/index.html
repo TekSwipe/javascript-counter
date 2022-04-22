@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Javascript Counter</title>
+    <style>
+      .App {
+        font-family: sans-serif;
+        text-align: center;
+      }
+      .label {
+        font-size: 4em;
+      }
+
+      .addButton,
+      .subtractButton,
+      .resetButton {
+        color: white;
+        padding: 15px 40px;
+        font-size: 2em;
+        border: none;
+        border-radius: 20px;
+        margin-right: 15px;
+        margin-left: 15px;
+        cursor: pointer;
+        width: 200px;
+      }
+
+      .addButton {
+        background-color: green;
+      }
+
+      .subtractButton {
+        background-color: red;
+      }
+
+      .resetButton {
+        background-color: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="App">
+      <h2 class="label" id="number">0</h2>
+      <button class="addButton" id="addButton">+</button>
+      <button class="subtractButton" id="subtractButton">-</button>
+      <button class="resetButton" id="resetButton">Reset</button>
+    </div>
+    <script>
+      let add = document.getElementById("addButton");
+      let subtract = document.getElementById("subtractButton");
+      let reset = document.getElementById("resetButton");
+      let number = document.getElementById("number");
+      let nothing = 0;
+
+      let count = 0;
+
+      function updateLabel(newCount) {
+        count = newCount;
+        number.innerHTML = count;
+      }
+
+      add.addEventListener("click", () => updateLabel(count + 1));
+
+      subtract.addEventListener("click", () => updateLabel(count - 1));
+
+      reset.addEventListener("click", () => updateLabel(0));
+    </script>
+  </body>
+</html>
